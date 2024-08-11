@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header><h1>Tienda</h1></header>
+        <main id="view"></main>
+    </div>
+
+    <!--Libs-->
+    <script src="/handlebars.min.js"></script>
+
+    <script src="/HomePage.js"></script>
+    <script src="/ArticuloPage.js"></script>
+
+    <script src="/Common.js"></script>
+
+
+    <script>
+        // Listado de articulos
+        let articulos = [
+        {
+            nombre: "Unbranded Cotton Shoes",
+            descripcion:
+              "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+            precio: "15.00",
+            urlImagen: "http://loremflickr.com/640/480/technics",
+            id: "4",
+          },
+          {
+            nombre: "Modern Frozen Chair",
+            descripcion:
+              "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+            precio: "300.00",
+            urlImagen: "http://loremflickr.com/640/480/technics",
+            id: "5",
+          },
+        ]
+        
+        // Se crea las rutas.
+        const routes = {
+            '/' : HomePage,
+            '/articulos' : ArticuloPage,
+        };
+
+        // Root en la ventana window agregamos un metodo addEventListener para que cargue el evento DOMContentLoaded y dentro de ella se ejecute la funcion HomePage.
+        window.addEventListener('DOMContentLoaded', () => {
+            HomePage();
+        });
+        
+        // En la ventana window con el metodo addEventListener llamamos al evento popstate y  llamamos ala funcion navigate y le pasamos el location.pathname .
+        // popstate maneja los cambios en el historial de navegacion del navegador.
+        // Se dispara cuando la accion del historial cambia.
+        window.addEventListener('popstate', () => navigate(location.pathname));
+
+    </script>
+    
+</body>
+</html>
