@@ -1,3 +1,4 @@
+//----------------------------------FabricioCamejo-code--------------------------------------------------
 async function ArticuloPage()
 {
     const search = new URLSearchParams(location.search);
